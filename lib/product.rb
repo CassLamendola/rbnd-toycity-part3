@@ -15,11 +15,17 @@ class Product
 	private
 
 	def add_to_products
-		if @@products.include?("#{self.title}")
+		product_title = @@products.select {|product| product.title == self.title}
+		if product_title != []
 			raise DuplicateProductError, "#{self.title} already exists."
 		else
-			@@products << self.title
+			@@products << self
 		end
 		
+	end
+
+	def Product.find_by_title(product_title)
+		product = @@products.select {|product| product.title == product_title}
+		return product[0]
 	end
 end
