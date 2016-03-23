@@ -8,7 +8,7 @@ class Customer
 		add_to_customers
 	end
 
-	def Customer.all
+	def self.all
 		@@customers
 	end
 
