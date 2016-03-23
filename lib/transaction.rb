@@ -17,6 +17,11 @@ class Transaction
 		@@transactions
 	end
 
+	def self.find(id)
+		transaction = @@transactions.select {|transaction| transaction.id == id}
+		return transaction[0]
+	end
+
 	private
 	
 	def reduce_stock

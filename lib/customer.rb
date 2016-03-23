@@ -12,9 +12,13 @@ class Customer
 		@@customers
 	end
 
-	def Customer.find_by_name(customer_name)
+	def self.find_by_name(customer_name)
 		customer = @@customers.select {|customer| customer.name == customer_name}
 		return customer[0]
+	end
+
+	def purchase(product)
+		Transaction.new(self, product)
 	end
 
 	private
