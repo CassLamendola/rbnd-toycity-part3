@@ -18,6 +18,15 @@ class Product
 		@stock > 0
 	end
 
+	def Product.find_by_title(product_title)
+		product = @@products.select {|product| product.title == product_title}
+		return product[0]
+	end
+
+	def Product.in_stock
+		@@products.select {|product| product.stock > 0}
+	end
+
 	private
 
 	def add_to_products
@@ -30,8 +39,4 @@ class Product
 		
 	end
 
-	def Product.find_by_title(product_title)
-		product = @@products.select {|product| product.title == product_title}
-		return product[0]
-	end
 end
