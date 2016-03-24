@@ -1,0 +1,21 @@
+Q - How long did you spend working on this project?
+
+A - I'm guessing around 5 hours (I'm kind of a perfectionist)
+
+
+Q - What was the most rewarding challenge you conquered?
+
+A - I loved this whole experience. The most rewarding and challenging part was adding one of my new features - the ability for customers to make returns. It was rewarding because of the challenge and because I'm proud of the way that I implemented it. I was also challenged creating the "find" methods for customers, products, and transactions. It took a lot of tweaking to make it work (and I'm sure there was an easier way, but I couldn't find it).
+
+
+Q - What two additional features did you build?
+
+A - I had a lot of fun with this project, so I created 3 additional features:
+	1. added a brand attribute to Product class
+	2. added ablitity for customers to make returns
+	3. added attributes to Customer class that track the number of purchases and returns each customer makes
+
+
+Q - Where do you still have room to grow?
+
+A - I had a lot of issues with pusing my local repositories to GitHub. I need more practice in that area. Also, I still don't have a firm grasp on when it's optimal to make a method private, and when it chould be public.

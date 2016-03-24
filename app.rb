@@ -57,10 +57,49 @@ transaction = Transaction.new(walter, nanoblock)
 
 walter.purchase(nanoblock)
 
-puts Transaction.all.count # Should return 2
+# puts Transaction.all.count # Should return 2
 
 transaction2 = Transaction.find(2)
-puts transaction2.product == nanoblock # Should return true
+# puts transaction2.product == nanoblock # Should return true
 
-walter.purchase(firehouse)
+# walter.purchase(firehouse)
 # Should return OutOfStockError: 'LEGO Firehouse Headquarter' is out of stock.
+
+## TESTING FOR NEW FEATURES
+
+# BRANDS
+
+Product.new(brand: "LEGO", title: "Star Wars Rebel Alliance", price: 12.99, stock: 30)
+starwars = Product.find_by_title("Star Wars Rebel Alliance")
+# puts starwars.brand # Should return "LEGO"
+
+# CUSTOMER RETURNS
+
+walter.return_item(nanoblock)
+# puts nanoblock.stock # Should return 11
+
+julia = Customer.find_by_name("Julia Van Cleve")
+julia.purchase(starwars)
+# puts starwars.stock # Should return 29
+
+julia.return_item(starwars)
+# puts starwars.stock # Should return 30
+
+# KEEP TRACK OF PURCHASES AND RETURNS FOR CUSTOMERS
+
+# puts walter.purchases # Should return 2
+# puts walter.returns # Should return 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+

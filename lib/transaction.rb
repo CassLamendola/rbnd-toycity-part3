@@ -4,13 +4,19 @@ class Transaction
 	@@id = 1
 	@@transactions = []
 
-	def initialize(customer, product)
+	def initialize(customer, product, options = {})
 		@customer = customer
 		@product = product
 		@id = @@id
 		@@id += 1
 		@@transactions << self
-		reduce_stock
+		if options[:item_return]
+			increase_stock
+			customer.returns += 1
+		else
+			reduce_stock
+			customer.purchases += 1
+		end
 	end
 
 	def self.all
@@ -30,5 +36,9 @@ class Transaction
 		else
 			raise OutOfStockError, "#{@product.title} is out of stock."
 		end
+	end
+
+	def increase_stock
+		@product.stock += 1
 	end
 end

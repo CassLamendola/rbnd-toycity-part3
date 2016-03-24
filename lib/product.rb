@@ -1,5 +1,5 @@
 class Product
-	attr_reader :title, :price
+	attr_reader :title, :price, :brand
 	attr_accessor :stock
 	
 	@@products = []
@@ -8,6 +8,7 @@ class Product
 		@title = options[:title]
 		@price = options[:price]
 		@stock = options[:stock]
+		@brand = options[:brand]
 		add_to_products
 	end
 

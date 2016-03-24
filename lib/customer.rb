@@ -1,11 +1,15 @@
 class Customer
 	attr_reader :name
+	attr_accessor :purchases, :returns
 
 	@@customers = []
 
 	def initialize(options = {})
 		@name = options[:name]
 		add_to_customers
+		@purchases = 0
+		@returns = 0
+
 	end
 
 	def self.all
@@ -19,6 +23,10 @@ class Customer
 
 	def purchase(product)
 		Transaction.new(self, product)
+	end
+
+	def return_item(product)
+		Transaction.new(self, product, item_return: true)
 	end
 
 	private
